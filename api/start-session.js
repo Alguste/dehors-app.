@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   try {
     const targetWords = durationMin * 140;
     const msg = await anthropic.messages.create({
-      model: "claude-3-5-sonnet-20240620",
+      model: "claude-sonnet-5",
       max_tokens: 1500,
       system: `Tu es le moteur de DEHORS. Génère un script pédagogique d'environ ${targetWords} mots. Commence directement.`,
       messages: [{ role: "user", content: `Question : "${question}"` }]

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const anthropic = new Anthropic({ 
   apiKey: process.env.ANTHROPIC_API_KEY,
-  baseURL: "https://api.anthropic.com/v1/"
 });
 const D_ID_API_KEY = process.env.D_ID_API_KEY;
 
@@ -14,7 +13,7 @@ export default async function handler(req, res) {
   try {
     const targetWords = durationMin * 140;
     const msg = await anthropic.messages.create({
-      model: "claude-sonnet-5",
+      model: "claude-sonnet-4-6",
       max_tokens: 1500,
       system: `Tu es le moteur de DEHORS. Génère un script pédagogique d'environ ${targetWords} mots. Commence directement.`,
       messages: [{ role: "user", content: `Question : "${question}"` }]
